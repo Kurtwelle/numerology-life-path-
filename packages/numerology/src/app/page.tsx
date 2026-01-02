@@ -201,8 +201,42 @@ export default function LifePathNFT() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-950 via-purple-900 to-pink-900 text-white overflow-auto">
-      <div className="container mx-auto px-4 py-12 max-w-2xl">
+    <div className="min-h-screen bg-gradient-to-br from-red-900 via-green-900 to-red-950 text-white overflow-auto relative">
+      {/* Christmas background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Snowflakes */}
+        {[...Array(50)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute text-white opacity-70 animate-pulse"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              fontSize: `${Math.random() * 20 + 10}px`,
+              animationDelay: `${Math.random() * 3}s`
+            }}
+          >
+            ❄️
+          </div>
+        ))}
+        {/* Christmas ornaments */}
+        {[...Array(15)].map((_, i) => (
+          <div
+            key={`ornament-${i}`}
+            className="absolute animate-bounce"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              fontSize: `${Math.random() * 30 + 20}px`,
+              animationDelay: `${Math.random() * 2}s`,
+              animationDuration: `${Math.random() * 3 + 2}s`
+            }}
+          >
+            {['🎄', '🎅', '⭐', '🎁', '🔔'][Math.floor(Math.random() * 5)]}
+          </div>
+        ))}
+      </div>
+      <div className="container mx-auto px-4 py-12 max-w-2xl relative z-10">
         <div className="text-center mb-12">
           <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-pink-400 bg-clip-text text-transparent">
             Life Path NFT
@@ -271,4 +305,5 @@ export default function LifePathNFT() {
     </div>
   );
 }
+
 
